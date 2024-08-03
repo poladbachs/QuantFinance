@@ -1,7 +1,5 @@
-#ifndef VANILLA OPTION H
-#define VANILLA OPTION H
-
-#endif
+#ifndef VANILLA_OPTION_H
+#define VANILLA_OPTION_H
 
 class VanillaOption {
 private:
@@ -15,5 +13,16 @@ private:
     double sigma; // Volatility of underlying asset
 
 public:
+    VanillaOption();                                // Default constructor − has no parameters
+    VanillaOption(const double& K, const double& r,
+                  const double& T, const double& S,
+                  const double& sigma);             // Parameter constructor
+    VanillaOption(const VanillaOption& rhs);        // Copy constructor
+    VanillaOption& operator = (const VanillaOption& rhs); // Assignment operator
+    ~VanillaOption() ;
+
+
 
 };
+
+#endif
