@@ -19,10 +19,18 @@ public:
                   const double& sigma);             // Parameter constructor
     VanillaOption(const VanillaOption& rhs);        // Copy constructor
     VanillaOption& operator = (const VanillaOption& rhs); // Assignment operator
-    ~VanillaOption() ;
+    virtual ~VanillaOption() ; // Destructor is virtual
 
+    // Getter methods for our option parameters
+    double getK () const;
+    double getr() const;
+    double getT() const;
+    double getS() const;
+    double getsigma() const;
 
-
+    // Option price calculation methods
+    double calc_call_price() const;
+    double calc_put_price() const;
 };
 
 #endif
