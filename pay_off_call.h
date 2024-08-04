@@ -2,7 +2,6 @@
 #define PAY_OFF_CALL_H
 
 #include "pay_off.h"
-#include <algorithm>
 
 // Derived subclass for call option pay-off
 class PayOffCall : public PayOff {
