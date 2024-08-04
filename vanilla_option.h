@@ -12,6 +12,8 @@ private:
     double S; // Underlying asset price
     double sigma; // Volatility of underlying asset
 
+    double N(double x) const; // Cumulative distribution function for the standard normal distribution
+
 public:
     VanillaOption();                                // Default constructor − has no parameters
     VanillaOption(const double& K, const double& r,

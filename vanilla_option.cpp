@@ -64,18 +64,23 @@ double VanillaOption::getS() const { return S; }
 // Public access for the volatility of underlying asset, sigma
 double VanillaOption::getsigma() const { return sigma; }
 
+// Cumulative distribution function for the standard normal distribution
+double VanillaOption::N(double x) const {
+    return 0.5 * std::erfc(-x / std::sqrt(2));
+}
+
 double VanillaOption :: calc_call_price() const {
     double sigma_sqrt_T = sigma * sqrt(T);
     double d_1 = ( log(S/K) + (r + sigma * sigma * 0.5 ) * T ) / sigma_sqrt_T;
     double d_2 = d_1 - sigma_sqrt_T;
-    return S - K * exp(-r*T);
+    return S * N(d_1) - K * exp(-r*T) * N(d_2);
 }
 
 double VanillaOption :: calc_put_price () const {
     double sigma_sqrt_T = sigma * sqrt(T);
     double d_1 = ( log(S/K) + (r + sigma * sigma * 0.5 ) * T ) / sigma_sqrt_T;
     double d_2 = d_1 - sigma_sqrt_T;
-    return K * exp(-r*T) - S;
+    return K * exp(-r*T) * N(-d_2) - S * N(-d_1);
 }
 
 #endif
