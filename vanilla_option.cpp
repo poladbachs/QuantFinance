@@ -22,6 +22,31 @@ void VanillaOption::copy(const VanillaOption& rhs) {
     sigma = rhs.getsigma();
 }
 
+VanillaOption::VanillaOption() { init(); } // Default Constructor
 
+VanillaOption::VanillaOption(const double& _K, const double& _r,    // Parameter Constructor
+                             const double& _T , const double& _S,
+                             const double& _sigma) {
+
+    K = _K;
+    r = _r;
+    T = _T;
+    S = _S;
+    sigma = _sigma;
+}
+
+VanillaOption::VanillaOption(const VanillaOption& rhs) { // Copy Constructor
+    copy(rhs);
+}
+
+VanillaOption& VanillaOption::operator=(const VanillaOption& rhs) {
+    if (this == &rhs) return *this;
+    copy(rhs);
+    return *this;
+}
+
+VanillaOption::~VanillaOption() {
+    // Empty, as the compiler does the work of cleaning up the simple types for us
+}
 
 #endif
