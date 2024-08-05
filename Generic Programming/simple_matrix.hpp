@@ -1,4 +1,4 @@
-#ifndef SIMPLE_MATRIX_H 
+#ifndef SIMPLE_MATRIX_H
 #define SIMPLE_MATRIX_H
 
 #include <vector> // Need this to store matrix values
