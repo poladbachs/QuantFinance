@@ -30,10 +30,28 @@ SimpleMatrix<Type>::SimpleMatrix(const SimpleMatrix<Type>& _rhs) {
 // Overloaded assignment operator
 template <typename Type>
 SimpleMatrix<Type>& SimpleMatrix<Type>::operator= (const SimpleMatrix<Type>& _rhs) {
-    if (this = &_rhs) return *this; // Handling assignment to itself
+    if (this == &_rhs) return *this; // Handling assignment to itself
     mat = _rhs.get_mat();
     return *this;
 }
 
+// Destructor
+template <typename Type>
+SimpleMatrix<Type>::~SimpleMatrix() {
+    // No need for implementation , as there is no
+    // manual dynamic memory allocation
+}
+
+// Matrix access methods, via copying
+template <typename Type>
+std::vector<std::vector<Type> > SimpleMatrix<Type>::get_mat() const {
+    return mat;
+}
+
+// Matrix access method, via row and column index
+template <typename Type>
+Type& SimpleMatrix<Type>::value(const int& row, const int& col) {
+    return mat[row][col]; 
+}
 
 #endif

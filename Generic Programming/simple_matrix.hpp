@@ -1,11 +1,11 @@
-#ifndef SIMPLE_MATRIX_H
-#define SIMPLE_MATRIX_H
+#ifndef SIMPLE_MATRIX_HPP
+#define SIMPLE_MATRIX_HPP
 
 #include <vector> // Need this to store matrix values
 
 template <typename Type = double> class SimpleMatrix {
 private:
-    vector<vector<Type> > mat; // Use a ”vector of vectors” to store the values
+    std::vector<std::vector<Type> > mat; // Use a ”vector of vectors” to store the values
 
 public:
     SimpleMatrix(); // Default Constructor
@@ -21,7 +21,7 @@ public:
     virtual ~SimpleMatrix(); // Destructor virtual
 
     // Access to the matrix values directly , via row and column indices
-    vector<vector<Type> > get_mat() const;
+    std::vector<std::vector<Type> > get_mat() const;
     Type& value(const int& row, const int& col);
 };
 
