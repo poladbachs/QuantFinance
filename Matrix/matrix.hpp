@@ -1,10 +1,9 @@
-#ifndef QS_MATRIX_H 
-#define QS_MATRIX_H
+#ifndef QS_MATRIX_HPP
+#define QS_MATRIX_HPP
 
 #include <vector>
 
 template <typename T> class QSMatrix {
-
 private:
     std::vector<std:vector<T> > mat;
     unsigned rows;
