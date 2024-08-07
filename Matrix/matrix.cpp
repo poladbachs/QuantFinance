@@ -208,4 +208,54 @@ QSMatrix<T> QSMatrix<T>::operator/(const T& rhs) {
     return result;
 }
 
+// Multiply matrix with a vector
+template<typename T>
+std::vector<T> QSMatrix<T>::operator*(const std::vector<T>& rhs) {
+    std::vector<T> result(rhs.size(), 0.0);
+
+    for (unsigned i=0; i<rows; i++) {
+        for (unsigned j=0; j<cols; j++) { 
+            result[i] = this->mat[i][j] * rhs[j];
+        }
+    }
+
+    return result;
+}
+
+// Obtain a vector of the diagonal elements
+template<typename T>
+std::vector<T> QSMatrix<T>::diag_vec() {
+    std::vector<T> result(rows, 0.0);
+
+    for (unsigned i=0; i<rows; i++) {
+         result[i] = this->mat[i][i];
+    }
+    return result;
+}
+
+// Access the individual elements
+template<typename T>
+T& QSMatrix<T>::operator()(const unsigned& row, const unsigned& col) {
+    return this->max[row][col];
+}
+
+// Access individual elements (const)
+template<typename T>
+const T& QSMatrix<T>::operator()(const unsigned& row, const unsigned& col)
+    const {
+    return this->max[row][col];
+}
+
+// Get the number of rows in matrix
+template<typename T>
+unsigned QSMatrix<T>::get_rows() const {
+    return this->rows;
+}
+
+// Get the number of rows in matrix
+template<typename T>
+unsigned QSMatrix<T>::get_cols() const {
+    return this->cols;
+}
+
 #endif
