@@ -52,6 +52,20 @@
         "streambuf": "cpp",
         "tuple": "cpp",
         "typeinfo": "cpp",
-        "dense": "cpp"
+        "dense": "cpp",
+        "__tree": "cpp",
+        "condition_variable": "cpp",
+        "deque": "cpp",
+        "fstream": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "list": "cpp",
+        "map": "cpp",
+        "queue": "cpp",
+        "set": "cpp",
+        "thread": "cpp",
+        "unordered_set": "cpp",
+        "valarray": "cpp"
     }
 }
