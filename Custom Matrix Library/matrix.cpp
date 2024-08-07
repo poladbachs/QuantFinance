@@ -1,7 +1,7 @@
 #ifndef QS_MATRIX_CPP 
 #define QS_MATRIX_CPP
 
-#include <matrix.hpp>
+#include "matrix.hpp"
 
 // Parameter Constructor
 template<typename T>
@@ -70,7 +70,7 @@ QSMatrix<T> QSMatrix<T>::operator+(const QSMatrix<T>& rhs) {
 template<typename T>
 QSMatrix<T>& QSMatrix<T>::operator+=(const QSMatrix<T>& rhs) {
     unsigned rows = rhs.get_rows();
-    unsigned cols = rh.get_cols();
+    unsigned cols = rhs.get_cols();
 
     for (unsigned i=0; i<rows; i++) {
         for (unsigned j=0; j<cols;j++) {
@@ -85,7 +85,7 @@ QSMatrix<T>& QSMatrix<T>::operator+=(const QSMatrix<T>& rhs) {
 template<typename T>
 QSMatrix<T> QSMatrix<T>::operator-(const QSMatrix<T>& rhs) {
     unsigned rows = rhs.get_rows();
-    unsigned cols = rh.get_cols();
+    unsigned cols = rhs.get_cols();
     QSMatrix result(rows, cols, 0.0);
 
     for (unsigned i=0; i<rows; i++) {
@@ -101,7 +101,7 @@ QSMatrix<T> QSMatrix<T>::operator-(const QSMatrix<T>& rhs) {
 template<typename T>
 QSMatrix<T>& QSMatrix<T>::operator-=(const QSMatrix<T>& rhs) {
     unsigned rows = rhs.get_rows();
-    unsigned cols = rh.get_cols();
+    unsigned cols = rhs.get_cols();
 
     for (unsigned i=0; i<rows; i++) {
         for (unsigned j=0; j<cols;j++) {
@@ -115,7 +115,7 @@ QSMatrix<T>& QSMatrix<T>::operator-=(const QSMatrix<T>& rhs) {
 template<typename T>
 QSMatrix<T> QSMatrix<T>::operator*(const QSMatrix<T>& rhs) {
     unsigned rows = rhs.get_rows();
-    unsigned cols = rh.get_cols();
+    unsigned cols = rhs.get_cols();
     QSMatrix result(rows, cols, 0.0);
 
     for (unsigned i=0; i<rows; i++) {
@@ -236,14 +236,14 @@ std::vector<T> QSMatrix<T>::diag_vec() {
 // Access the individual elements
 template<typename T>
 T& QSMatrix<T>::operator()(const unsigned& row, const unsigned& col) {
-    return this->max[row][col];
+    return this->mat[row][col];
 }
 
 // Access individual elements (const)
 template<typename T>
 const T& QSMatrix<T>::operator()(const unsigned& row, const unsigned& col)
     const {
-    return this->max[row][col];
+    return this->mat[row][col];
 }
 
 // Get the number of rows in matrix
@@ -256,6 +256,24 @@ unsigned QSMatrix<T>::get_rows() const {
 template<typename T>
 unsigned QSMatrix<T>::get_cols() const {
     return this->cols;
+}
+
+#include <iostream>
+
+int main(int argc, char **argv) {
+    QSMatrix<double> mat1(10, 10, 1.0);
+    QSMatrix<double> mat2(10, 10, 2.0);
+
+    QSMatrix<double> mat3 = mat1 + mat2;
+
+    for (int i = 0; i<mat3.get_rows(); i++) {
+        for (int j = 0; j<mat3.get_cols(); j++) {
+            std::cout << mat3(i,j) << ", ";
+        }
+        std::cout << std::endl;
+    }
+
+    return 0;
 }
 
 #endif

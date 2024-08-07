@@ -5,7 +5,7 @@
 
 template <typename T> class QSMatrix {
 private:
-    std::vector<std:vector<T> > mat;
+    std::vector<std::vector<T> > mat;
     unsigned rows;
     unsigned cols;
 
