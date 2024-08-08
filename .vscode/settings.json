@@ -66,6 +66,7 @@
         "set": "cpp",
         "thread": "cpp",
         "unordered_set": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "*.main": "cpp"
     }
 }

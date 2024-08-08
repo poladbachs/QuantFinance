@@ -37,7 +37,61 @@ void thomas_algorithm(const std::vector<double>& a,
     for (int i=N-1; i--> 0; ) {
         f[i] = d_star[i] - c_star[i] * d[i+1]; 
     }
+}
 
-    
+// Although thomas algorithm provides everything necessary to solve
+// a tridiagonal system, it is helpful to wrap it up in a ”real world” 
+// example. The main function below uses a tridiagonal system from
+// a Boundary Value Problem (BVP). This is the discretisation of the 
+// 1D heat equation.
+int main(int argc , char **argv) {
+    // Create a Finite Difference Method (FDM) mesh with 13 points
+    // using the Crank−Nicolson method to solve the discretised
+    // heat equation.
+    size_t N= 13;
+    double delta_x = 1.0/static_cast<double>(N);
+    double delta_t = 0.001;
+    double r = delta_t/(delta_x*delta_x);
 
+    // First we create the vectors to store the coefficients
+    std::vector<double> a(N-1, -r/2.0);
+    std::vector<double> b(N, 1.0 + r);
+    std::vector<double> c(N-1, -r/2.0);
+    std::vector<double> d(N, 0.0);
+    std::vector<double> f(N, 0.0);
+
+    // Fill in the current time step initial value
+    // vector using three peaks with various amplitudes 
+    f[5]=1; f[6]=2; f[7]=1;
+
+    // We output the solution vector f, prior to a 
+    // new time−step
+    std::cout << "f = (";
+    for (int i=0; i<N; i++) {
+        std::cout << f[i]; 
+        if (i < N-1) {
+            std::cout << ", "; 
+        }
+    }
+    std::cout << ")" << std::endl << std::endl;
+
+    // Fill in the current time step vector d
+    for (int i=1; i<N-1; i++) {
+        d[i] = r*0.5*f[i+1] + (1.0-r)*f[i] + r*0.5*f[i-1];
+    }
+
+    // Now we solve the tridiagonal system
+    thomas_algorithm(a, b, c, d, f);
+
+    // Finally we output the solution vector f
+    std::cout << "f = (";
+    for (int i=0; i<N; i++) {
+        std::cout << f[i];
+        if (i < N-1) {
+            std::cout << ", ";
+        }
+    }
+    std::cout << ")" << std::endl;
+
+    return 0;
 }
