@@ -13,5 +13,17 @@ int main() {
     std::cout << "Matrix P: \n" << p << std::endl << std::endl;
 
     Eigen::LLT<Matrix4x4> llt(p);
-    
+
+    // Output L, lower triangular matrix
+    Matrix4x4 l = llt.matrixL();
+    std::cout << "L Matrix: \n" << l << std::endl << std::endl;
+
+    // Output LT, the upper triangular conjugate transpose of L
+    Matrix4x4 u = l.transpose();
+    std::cout << "U Matrix: \n" << u << std::endl << std::endl;
+
+    // Check that LLT = P
+    std::cout << "LLT Matrix: \n" << l*u << std::endl;
+
+    return 0;
 }
