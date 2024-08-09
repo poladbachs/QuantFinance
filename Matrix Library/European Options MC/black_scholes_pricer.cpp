@@ -29,3 +29,21 @@ double d_j(const int& j, const double& S, const double& K, const double& r,
            const double& v, const double& T) {
             return (log(S/K) + (r + (pow(-1,j-1))*0.5*v*v)*T)/(v*(pow(T,0.5))); 
 }
+
+// Calculate the European vanilla call price based on
+// underlying S, strike K, risk−free rate r, volatility of
+// underlying sigma and time to maturity T
+double call_price (const double& S, const double& K, const double& r,
+                   const double& v, const double& T) {
+    return S * norm_cdf(d_j(1, S, K, r, v, T))-K*exp(-r*T) *
+               norm_cdf(d_j(2, S, K, r, v, T));
+}
+
+// Calculate the European vanilla put price based on
+// underlying S, strike K, risk−free rate r, volatility of
+// underlying sigma and time to maturity T
+double call_price (const double& S, const double& K, const double& r,
+                   const double& v, const double& T) {
+    return -S * norm_cdf(-d_j(1, S, K, r, v, T))+K*exp(-r*T) *
+               norm_cdf(-d_j(2, S, K, r, v, T));
+}
