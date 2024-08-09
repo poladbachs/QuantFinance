@@ -67,6 +67,7 @@
         "thread": "cpp",
         "unordered_set": "cpp",
         "valarray": "cpp",
-        "*.main": "cpp"
+        "*.main": "cpp",
+        "alignedvector3": "cpp"
     }
 }
