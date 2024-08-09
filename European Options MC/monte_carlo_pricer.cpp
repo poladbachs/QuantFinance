@@ -58,3 +58,29 @@ double monte_carlo_put_price(const int& num_sims , const double& S,
 
     return (payoff_sum / static_cast<double>(num_sims)) * exp(-r*T);
 }
+
+int main(int argc, char **argv) {
+    // First we create the parameter list
+    int num_sims = 10000000; // Number of simulated asset paths
+    double S = 100.0; // Option price
+    double K = 100.0; // Strike price
+    double r = 0.05; // Risk−free rate (5%)
+    double v = 0.2; // Volatility of the underlying (20%) 
+    double T = 1.0; // One year until expiry
+
+    // Then we calculate the call/put values via Monte Carlo
+    double call = monte_carlo_call_price(num_sims, S, K, r, v, T);
+    double put = monte_carlo_put_price(num_sims, S, K, r, v, T);
+
+    std::cout << "Number of Paths: " << num_sims << std::endl;
+    std::cout << "Underlying: " << S << std::endl;
+    std::cout << "Strike: " << K << std::endl;
+    std::cout << "Risk-free Rate: " << r << std::endl;
+    std::cout << "Volatility : " << v << std::endl;
+    std::cout << "Maturity: " << T << std::endl;
+
+    std::cout << "Call Price:" << call << std::endl;
+    std::cout << "Put Price:" << put << std::endl;
+
+    return 0;
+}
