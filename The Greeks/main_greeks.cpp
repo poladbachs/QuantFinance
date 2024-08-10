@@ -15,9 +15,9 @@ int main(int argc, char **argv) {
     double call_vega_v = call_vega(S, K, r, v, T); 
     double call_theta_v = call_theta(S, K, r, v, T);
     double call_rho_v = call_rho(S, K, r, v, T);
-    
+
     double put = put_price(S, K, r, v, T);
-    double put_delta_v = call_delta(S, K, r, v, T);
+    double put_delta_v = put_delta(S, K, r, v, T);
     double put_gamma_v = put_gamma(S, K, r, v, T); 
     double put_vega_v = put_vega(S, K, r, v, T); 
     double put_theta_v = put_theta(S, K, r, v, T);
