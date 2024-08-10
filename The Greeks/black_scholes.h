@@ -44,3 +44,36 @@ double call_price (const double& S, const double& K, const double& r,
                norm_cdf(d_j(2, S, K, r, v, T));
 }
 
+// Calculate the European vanilla call Delta
+double call_delta(const double S, const double K, const double r , 
+                  const double v , const double T) {
+    return norm_cdf(d_j(1, S, K, r, v, T));
+}
+
+// Calculate the European vanilla call Gamma
+double call_gamma(const double S, const double K, const double r , 
+                  const double v , const double T) {
+    return norm_pdf(d_j(1, S, K, r, v, T))/(S*v*sqrt(T));
+}
+
+// Calculate the European vanilla call Vega
+double call_vega(const double S, const double K, const double r , 
+                  const double v , const double T) {
+    return S*norm_pdf(d_j(1, S, K, r, v, T))*sqrt(T);
+}
+
+// Calculate the European vanilla call Theta
+double call_theta(const double S, const double K, const double r , 
+                  const double v , const double T) {
+    return -(S*norm_pdf(d_j(1, S, K, r, v, T))*v)/(2*sqrt(T))
+    - r*K*exp(-r*T)*norm_cdf(d_j(2, S, K, r, v, T));
+}
+
+// Calculate the European vanilla call Rho
+double call_rho(const double S, const double K, const double r , 
+                  const double v , const double T) {
+    return K*T*exp(-r*T)*norm_cdf(d_j(2, S, K, r, v, T));
+}
+
+
+
