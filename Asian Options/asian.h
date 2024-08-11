@@ -2,7 +2,7 @@
 #define ASIAN_H
 
 #include <vector> 
-#include "pay_off.h"
+#include "../PayOff/pay_off.h"
 
 class AsianOption {
 protected:

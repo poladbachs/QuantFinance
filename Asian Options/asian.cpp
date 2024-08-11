@@ -1,5 +1,5 @@
-#ifndef ASIAN CPP 
-#define ASIAN CPP
+#ifndef ASIAN_CPP 
+#define ASIAN_CPP
 
 #include <numeric> // Necessary for std : : accumulate 
 #include <cmath> // For log/exp functions
@@ -16,8 +16,7 @@ AsianOption::AsianOption(PayOff* pay_off) : pay_off(pay_off) {}
 // AsianOptionArithmetic 
 // =====================
 
-AsianOptionArithmetic::AsianOptionArithmetic(PayOff* pay_off )
-    : AsianOption(pay_off) {}
+AsianOptionArithmetic::AsianOptionArithmetic(PayOff* pay_off) : AsianOption(pay_off) {}
 
 
 // Arithmetic mean pay−off price

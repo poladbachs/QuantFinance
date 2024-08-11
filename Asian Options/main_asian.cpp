@@ -1,7 +1,8 @@
 #include <iostream>
+#include <vector>
+#include <cmath>
 
-#include "pay_off.h" 
-#include "pay_off_call.h"
+#include "../PayOff/pay_off_call.h"
 #include "asian.h" 
 #include "path_generation.h"
 
@@ -23,7 +24,7 @@ int main(int argc , char **argv) {
     PayOff* pay_off_call = new PayOffCall(K);
 
     // Create the AsianOption objects
-    AsianOptionArithmetic asian = (pay_off_call);
+    AsianOptionArithmetic asian (pay_off_call);
 
     // Update the spot price vector with correct // spot price paths at constant intervals 
     double payoff_sum = 0.0;
