@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
 
 #include "../PayOff/pay_off_call.h"
 #include "asian.h" 
