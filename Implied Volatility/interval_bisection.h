@@ -18,7 +18,25 @@ double interval_bisection(double y_target, // Target y value
     double x = 0.5 * (m + n);
     double y = g(x);
 
-    
+    // While the difference between y and the y target 
+    // value is greater than epsilon, keep subdividing 
+    // the interval into successively smaller halves 
+    // and re−evaluate the new y.
+
+    do { 
+        if(y < y_target){
+            m = x;
+        }
+
+        if(y > y_target){
+            n = x;
+        }
+
+        x = 0.5 * (m+n);
+        y = g(x);
+    } while (fabs(y - y_target) > epsilon);
+
+    return x;
 }
 
 #endif
