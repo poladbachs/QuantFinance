@@ -16,6 +16,18 @@ int main(int argc , char **argv) {
     // Create black scholes call functor
     BlackScholesCall bsc(S, K, r , T);
 
+    // Interval Bisection parameters
+    double low_vol = 0.05; 
+    double high_vol = 0.35; 
+    double epsilon = 0.001;
+
+    // Calculate implied volatility
+    double sigma = interval_bisection(C_M, low_vol, high_vol, epsilon, bsc);
+
+    // Output the values
+    std::cout << "Implied Volatility: " << sigma << std::endl;
+
+    return 0;
 }
 
 #endif
