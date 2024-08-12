@@ -8,7 +8,7 @@ template<typename T,
     double (T::*g_prime)(double) const>
 double newton_raphson(double y_target , // Target y value
                       double init , // Initial x value
-                      double epsilo, // Tolerance
+                      double epsilon, // Tolerance
                       const T& root_func) { // Function object
 
     // Set the initial option prices and volatility
@@ -20,8 +20,8 @@ double newton_raphson(double y_target , // Target y value
     // a new call price based on the best linear 
     // approximation at that particular vol value
     while ( fabs (y - y_target ) > epsilon ) {
-        double d x = (root func.*g prime)(x); 
-        x += (y_target-y)/d x;
+        double d_x = (root_func.*g_prime)(x); 
+        x += (y_target-y)/d_x;
         y = (root_func.*g)(x);
     }
     return x;
