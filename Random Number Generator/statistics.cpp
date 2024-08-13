@@ -75,6 +75,46 @@ double StandardNormalDistribution::inv_cdf(const double& quantile) const {
     }
 }
 
+// Expectation/mean
+double StandardNormalDistribution::mean() const { return 0.0; }
+
+// Variance
+double StandardNormalDistribution::var() const { return 1.0; }
+
+// Standard Deviation
+double StandardNormalDistribution::stdev() const { return 1.0; }
+
+// Obtain a sequence of random draws from this distribution
+void StandardNormalDistribution::random_draws( 
+    const std::vector<double>& uniform_draws , 
+    std::vector<double>& dist_draws
+) {
+    // The simplest method to calculate this is with the Box−Muller method,
+    // which has been used procedurally in many other chapters
+    // Check that the uniform draws and dist draws are the same size and
+    // have an even number of elements (necessary for B−M)
+    if (uniform_draws.size() != dist_draws.size()) {
+        std::cout << "Draw vectors are of unequal size." << std::endl;
+        return;
+    }
+
+    // Check that uniform draws have an even number of elements (necessary for B-M)
+    if (uniform_draws.size() % 2 != 0) {
+        std::cout << "Uniform draw vector size not an even number." << std :: endl ;
+        return; 
+    }
+
+    // Slow , but easy to implement
+    for (int i=0; i<uniform_draws.size() / 2; i++) {
+        dist_draws[2*i] = sqrt(-2.0*log(uniform_draws[2*i])) *
+            sin (2*M_PI*uniform_draws [2* i +1]) ;
+        dist_draws[2*i+1] = sqrt(-2.0*log(uniform_draws[2*i])) *
+            cos(2*M_PI*uniform_draws[2*i+1]);
+    }
+
+    return;
+}
+
 
 
 #endif
