@@ -24,4 +24,15 @@ LinearCongruentialGenerator::LinearCongruentialGenerator(
     max_multiplier = 1.0 / (1.0 + (m - 1));
 }
 
+// Obtains a random unsigned long integer
+unsigned long LinearCongruentialGenerator::get_random_integer() { 
+    unsigned long k = 0;
+    k = cur_seed / q;
+    cur_seed = a * (cur_seed - k * q) - r * k;
+    if (cur_seed < 0) { 
+        cur_seed +=m;
+    }
+    return cur_seed ; 
+}
+
 #endif
