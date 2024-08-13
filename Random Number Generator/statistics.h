@@ -26,10 +26,10 @@ public :
                               std::vector<double>& dist_draws) = 0;
 };
 
-class StatisticalNormalDistribution : public StatisticalDistribution {
+class StandardNormalDistribution : public StatisticalDistribution {
 public :
-    StatisticalNormalDistribution();
-    virtual  ~StatisticalNormalDistribution();
+    StandardNormalDistribution();
+    virtual  ~StandardNormalDistribution();
 
     // Distribution functions
     virtual double pdf(const double& x) const; 
