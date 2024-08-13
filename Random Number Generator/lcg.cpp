@@ -35,4 +35,10 @@ unsigned long LinearCongruentialGenerator::get_random_integer() {
     return cur_seed ; 
 }
 
+void LinearCongruentialGenerator::get_uniform_draws(std::vector<double>& draws) {
+    for (unsigned long i = 0; i < num_draws; i++) {
+        draws[i] = get_random_integer() * max_multiplier;
+    }
+}
+
 #endif
