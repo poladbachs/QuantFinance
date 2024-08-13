@@ -26,4 +26,26 @@ public :
                               std::vector<double>& dist_draws) = 0;
 };
 
+class StatisticalNormalDistribution : public StatisticalDistribution {
+public :
+    StatisticalNormalDistribution();
+    virtual  ~StatisticalNormalDistribution();
+
+    // Distribution functions
+    virtual double pdf(const double& x) const; 
+    virtual double cdf(const double& x) const;
+
+    // Inverse cumulative distribution functions (aka the quantile function)
+    virtual double inv_cdf(const double& quantile) const;
+
+    // Descriptive stats
+    virtual double mean() const; 
+    virtual double var() const; 
+    virtual double stdev() const;
+
+    // Obtain a sequence of random draws from this distribution
+    virtual void random_draws(const std :: vector<double>& uniform_draws, 
+                              std::vector<double>& dist_draws);
+};
+
 #endif
