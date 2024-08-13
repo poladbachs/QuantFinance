@@ -19,7 +19,11 @@ public:
     virtual void reset_random_seed() { cur_seed = init_seed; }
     virtual void set_num_draws(unsigned long _num_draws) { num_draws = _num_draws; }
 
-    
+    // Obtain a random integer (needed for creating random uniforms)
+    virtual unsigned long get_random_integer() = 0;
+
+    // Fills a vector with uniform random variables on the open interval (0 ,1)
+    virtual void get_uniform_draws(std::vector<double>& draws) = 0; 
 };
 
 #endif
