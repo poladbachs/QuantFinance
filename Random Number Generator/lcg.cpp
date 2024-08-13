@@ -1,5 +1,5 @@
-#ifndef LINEAR CONGRUENTIAL GENERATOR CPP
-#define LINEAR CONGRUENTIAL GENERATOR CPP
+#ifndef LCG_CPP
+#define LCG_CPP
 
 #include "lcg.h"
 
