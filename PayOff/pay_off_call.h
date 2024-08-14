@@ -8,7 +8,7 @@ class PayOffCall : public PayOff {
 private:
     double K; // Strike price
 public:
-    PayOffCall(const double K_); // No default constructor
+    PayOffCall(const double K); // No default constructor
     virtual ~PayOffCall(); // Destructor virtual for further inheritance
 
     // Virtual function is now over−ridden (not pure−virtual anymore)
