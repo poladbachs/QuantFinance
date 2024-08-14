@@ -1,6 +1,6 @@
-#include "statistics.h" 
+#include "../Random Number Generator/statistics.h"
 #include "correlated_snd.h"
-#include <iostream> 
+#include <iostream>
 #include <vector>
 
 int main(int argc , char **argv) {
@@ -8,7 +8,7 @@ int main(int argc , char **argv) {
     int vals = 30;
 
 
-    /* UNCORRELATED SND ∗/ 
+    /* UNCORRELATED SND */ 
     /* ================ */
 
     // Create the Standard Normal Distribution and random draw vectors
@@ -28,7 +28,7 @@ int main(int argc , char **argv) {
     // Create standard normal random draws
     snd.random_draws(snd_uniform_draws, snd_normal_draws);
 
-    /* CORRELATED SND ∗/ 
+    /* CORRELATED SND */ 
     /* ================ */
 
     // Correlation coef
@@ -43,7 +43,6 @@ int main(int argc , char **argv) {
     for (int i=0; i<csnd_uniform_draws.size(); i++) {
         csnd_uniform_draws[i] = rand() / static_cast<double>(RAND_MAX);
     }
-
     
     // Now create the −correlated− standard normal draw series
     csnd.random_draws(csnd_uniform_draws, csnd_normal_draws);

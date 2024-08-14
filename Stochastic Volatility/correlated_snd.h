@@ -1,7 +1,7 @@
-#ifndef CORRELATED SND H 
-#define CORRELATED SND H
+#ifndef CORRELATED_SND_H 
+#define CORRELATED_SND_H
 
-#include "statistics.h"
+#include "../Random Number Generator/statistics.h"
 class CorrelatedSND : public StandardNormalDistribution { 
 protected:
     double rho;
