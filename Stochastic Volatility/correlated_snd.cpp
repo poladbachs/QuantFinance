@@ -21,4 +21,32 @@ void CorrelatedSND::correlation_calc(std::vector<double>& dist_draws) {
     }
 }
 
+void CorrelatedSND::random_draws(const std::vector<double>& uniform_draws, 
+                                 std::vector<double>& dist_draws) {
+    // The following functionality is lifted directly from 
+    // statistics .h, which is fully commented!
+    if (uniform_draws.size() != dist_draws.size()) {
+        std::cout << "Draws vectors are of unequal size in standard normal dist."
+        << std::endl;
+        return; 
+    }
+
+    if (uniform_draws.size() % 2 != 0) {
+        std::cout << "Uniform draw vector size not an even number." << std :: endl ;
+        return; 
+    }
+
+    for (int i=0; i<uniform_draws.size() / 2; i++) {
+        dist_draws[2*i] = sqrt(-2.0*log(uniform_draws[2*i])) *
+            sin (2*M_PI*uniform_draws [2* i +1]) ;
+        dist_draws[2*i+1] = sqrt(-2.0*log(uniform_draws[2*i])) *
+            cos(2*M_PI*uniform_draws[2*i+1]);
+    }
+
+    // Modify the random draws via the correlation calculation
+    correlation_calc(dist_draws);
+
+    return;
+}
+
 #endif
