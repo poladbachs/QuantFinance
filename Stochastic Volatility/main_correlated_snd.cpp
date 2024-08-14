@@ -28,4 +28,30 @@ int main(int argc , char **argv) {
     // Create standard normal random draws
     snd.random_draws(snd_uniform_draws, snd_normal_draws);
 
+    /* CORRELATED SND ∗/ 
+    /* ================ */
+
+    // Correlation coef
+    double rho = 0.5;
+    
+    // Create the correlated standard normal distribution
+    CorrelatedSND csnd(rho, &snd_normal_draws); 
+    std::vector<double> csnd_uniform_draws(vals, 0.0);
+    std::vector<double> csnd_normal_draws(vals, 0.0);
+
+    // Uniform generation for the correlated SND
+    for (int i=0; i<csnd_uniform_draws.size(); i++) {
+        csnd_uniform_draws[i] = rand() / static_cast<double>(RAND_MAX);
+    }
+
+    
+    // Now create the −correlated− standard normal draw series
+    csnd.random_draws(csnd_uniform_draws, csnd_normal_draws);
+
+    // Output the values of the standard normal random draws
+    for (int i=0; i<snd_normal_draws.size(); i++) {
+        std::cout << snd_normal_draws[i] << ", " << csnd_normal_draws[i] << std::endl;
+    }
+
+    return 0;
 }
