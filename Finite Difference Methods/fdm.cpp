@@ -1,5 +1,5 @@
-#ifndef FDM CPP 
-#define FDM CPP
+#ifndef FDM_CPP 
+#define FDM_CPP
 
 #include <fstream> 
 #include "fdm.h"
@@ -12,7 +12,7 @@ FDMBase::FDMBase(double _x_dom, unsigned long _J,
 FDMEulerExplicit::FDMEulerExplicit(double _x_dom, unsigned long _J, 
                                    double _t_dom, unsigned long _N,
                                    ConvectionDiffusionPDE* _pde)
-    : FDMBase(_x_dom, J, _t_dom, _N, _pde) {
+    : FDMBase(_x_dom, _J, _t_dom, _N, _pde) {
         calculate_step_sizes();
         set_initial_conditions();
 };
