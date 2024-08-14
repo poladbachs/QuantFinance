@@ -28,8 +28,8 @@ class PayOffPut : public PayOff {
 private:
     double K; // Strike price
 public:
-    PayOffPut(const double& K_) {}; // No default constructor
-    virtual ~PayOffPut() {}; // Destructor virtual for further inheritance
+    PayOffPut(const double& K_); // No default constructor
+    virtual ~PayOffPut(); // Destructor virtual for further inheritance
 
     // Overridden operator() method to calculate the put option pay-off
     virtual double operator() (const double& S) const; // Pay−off is max(K − S, 0)
