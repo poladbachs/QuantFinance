@@ -68,6 +68,7 @@
         "unordered_set": "cpp",
         "valarray": "cpp",
         "*.main": "cpp",
-        "alignedvector3": "cpp"
+        "alignedvector3": "cpp",
+        "vanilla_option.h": "c"
     }
 }
