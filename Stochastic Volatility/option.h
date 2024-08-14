@@ -1,7 +1,7 @@
 #ifndef OPTION_H 
 #define OPTION_H
 
-#include "pay_off.h"
+#include "../PayOff/pay_off.h"
 
 class Option { 
 public:
