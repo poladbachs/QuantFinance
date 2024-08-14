@@ -39,3 +39,37 @@ double bs_call_price (const double S, const double K, const double r,
                norm_cdf(d_j(2, S, K, r, sigma, T));
 }
 
+// Calculate the Merton jump−diffusion price based on
+// a finite sum approximation to the infinite series
+// solution, making use of the BS call price.
+double bs_jd_call_price (const double S, const double K, const double r ,
+        const double sigma , const double T, const int N, const double m,
+        const double lambda , const double nu ) {
+
+    double price = 0.0; // Stores the final call price 
+    double factorial = 1.0;
+
+    // Pre−calculate as much as possible 
+    double lambda_p = lambda * m;
+    double lambda_p_T = lambda_p * T;
+
+
+    // Calculate the finite sum over N terms
+    for (int n=0; n<N; n++) {
+        double sigma_n = sqrt(sigma*sigma + n*nu*nu/T); 
+        double r_n = r - lambda*(m - 1) + n*log(m)/T;
+
+        // Calculate n!
+        if (n == 0) { 
+            factorial *= 1;
+        } else { 
+            factorial *= n;
+        }
+
+        // Refine the jump price over the loop
+        price += ((exp(-lambda_p_T) * pow(lambda_p_T,n))/factorial) * 
+            bs_call_price(S, K, r_n, sigma_n, T); 
+    }
+
+    return price;
+}
