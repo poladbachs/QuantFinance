@@ -20,7 +20,27 @@ protected:
     unsigned long N; // Number of temporal differencing points
     double dt; // Temporal step size (calculated from above)
 
+    // Time−marching
+    double prev_t , cur_t ; // Current and previous times
 
+    // Differencing coefficients
+    double alpha, beta, gamma;
+
+    // Storage
+    std::vector<double> new_result; // New solution (becomes N+1)
+    std::vector<double> old_result; // Old solution (becomes N)
+
+    // Constructor
+    FDMBase(double _x_dom, unsigned long J,
+            double _t_dom, unsigned long N,
+            ConvectionDiffusionPDE* pde);
+    
+    // Override these virtual methods in derived classes for
+    // specific FDM techniques, such as explicit Euler, Crank−Nicolson, etc . 
+    virtual void calculate_step_sizes() = 0;
+    virtual void set_initial_conditions () = 0;
+    virtual void calculate_boundary_conditions() = 0;
+    virtual void calculate_inner_domain() = 0;
 };
 
 #endif
