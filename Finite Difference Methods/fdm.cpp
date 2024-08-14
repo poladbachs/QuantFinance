@@ -68,4 +68,22 @@ void FDMEulerExplicit::calculate_inner_domain () {
     }
 }
 
+void FDMEulerExplicit::step_march() { 
+    std::ofstream fdm_out("fdm.csv");
+
+    while(cur_t < t_dom) {
+        cur_t = prev_t + dt;
+        calculate_boundary_conditions(); 
+        calculate_inner_domain();
+        for (int j=0; j<J; j++) {
+            fdm_out << x_values[j] << " " << prev_t << " " 
+                    << new_result[j] << std::endl;
+        }
+        old_result = new_result;
+        prev_t = cur_t;
+    }
+
+    fdm_out.close();
+}
+
 #endif
