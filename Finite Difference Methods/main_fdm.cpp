@@ -15,4 +15,9 @@ int main(int argc , char **argv) {
     unsigned long J = 20;
     double t_dom = T; // Time period as for the option 
     unsigned long N = 20;
+
+    // Create the PayOff and Option objects
+    PayOff* pay_off_call = new PayOffCall(K);
+    VanillaOption* call_option = new VanillaOption(K, r, T, v, pay_off_call);
+    
 }
