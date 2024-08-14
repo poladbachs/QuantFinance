@@ -19,4 +19,22 @@ public :
     
 };
 
+// Black-Scholes PDE
+class BlackScholesPDE : public ConvectionDiffusionPDE {
+public :
+    VanillaOption* option;
+    BlackScholesPDE(VanillaOption* _option);
+
+    // PDE Coefficients
+    double diff_coeff (double t , double x) const; 
+    double conv_coeff (double t , double x) const; 
+    double zero_coeff (double t , double x) const; 
+    double source_coeff (double t , double x) const;
+
+    // Boundary and initial conditions
+    double boundary_left (double t , double x) const; 
+    double boundary_right (double t , double x) const;
+    double init_cond(double x) const;
+};
+
 #endif
