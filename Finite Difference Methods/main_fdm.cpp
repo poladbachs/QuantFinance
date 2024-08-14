@@ -19,5 +19,8 @@ int main(int argc , char **argv) {
     // Create the PayOff and Option objects
     PayOff* pay_off_call = new PayOffCall(K);
     VanillaOption* call_option = new VanillaOption(K, r, T, v, pay_off_call);
-    
+
+    // Create the PDE and FDM objects
+    BlackScholesPDE* bs_pde = new BlackScholesPDE(call_option); 
+    FDMEulerExplicit fdm_euler(x_dom, J, t_dom, N, bs_pde);
 }
