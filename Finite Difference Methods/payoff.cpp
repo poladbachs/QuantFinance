@@ -3,14 +3,15 @@
 
 #include "payoff.h"
 
-PayOff::PayOff() {}
-
 // ========== 
 // PayOffCall 
 // ==========
 
 // Constructor with single strike parameter
 PayOffCall::PayOffCall(const double& _K) { K = _K; }
+
+// Destructor definition for PayOffCall
+PayOffCall::~PayOffCall() {}
 
 // Overridden operator() method, which turns PayOffCall into a function object
 double PayOffCall::operator()(const double& S) const {
@@ -23,6 +24,9 @@ double PayOffCall::operator()(const double& S) const {
 
 // Constructor with single strike parameter
 PayOffPut::PayOffPut(const double& _K) { K = _K; }
+
+// Destructor definition for PayOffPut
+PayOffPut::~PayOffPut() {}
 
 // Overridden operator() method, which turns PayOffCall into a function object
 double PayOffPut::operator() (const double& S) const {
