@@ -1,72 +1,86 @@
 # QuantCpp
 
-Personal Workshop:
-C++ for Quantitative Finance and Trading
+Personal Workshop: C++ for Quantitative Finance and Trading
 
-1. Introduction to C++ for Quant Finance
-Covered C++ basics with emphasis on financial applications (variables, loops, conditions)
-Set up a development environment for financial computing
+## Chapters Breakdown
 
-2. Data Structures for Quantitative Finance
-Implemented arrays, vectors, and matrices for financial data storage and manipulation
-Used STL containers for optimized data handling in simulations
+### 1. Introduction to C++
+- Explained the history and importance of C++ in quantitative analysis.
+- Covered key programming paradigms: procedural, object-oriented, and generic programming.
+- Introduced the Standard Template Library (STL) and Boost libraries.
 
-3. Object-Oriented Programming in Quantitative Finance
-Developed reusable classes for financial instruments (options, bonds, swaps)
-Applied inheritance and polymorphism to model complex instruments
+### 2. Your First Quantitative Finance C++ Program
+- Created a European vanilla option pricing program using object-oriented programming.
+- Implemented class constructors, destructors, selectors, and modifiers.
+- Explored passing by reference and value for performance optimization.
 
-4. Memory Management and Performance Optimization
-Managed dynamic memory allocation for high-frequency trading systems
-Optimized performance using pointers, smart pointers, and RAII patterns
+### 3. Option Pay-Off Hierarchies and Inheritance
+- Implemented a hierarchy of option payoffs using inheritance.
+- Built PayOffCall and PayOffDoubleDigital classes.
+- Applied polymorphism with virtual destructors for handling diverse payoff structures.
 
-5. Numerical Methods in Finance
-Implemented numerical methods for pricing derivatives (e.g., Newton-Raphson, finite differences)
-Solved optimization problems using gradient-based techniques
+### 4. Generic Programming and Template Classes
+- Designed a generic matrix template class for handling different data types.
+- Implemented mathematical operations for matrix algebra.
+- Compared the efficiency of generic programming vs. object-oriented programming in quant finance.
 
-6. Monte Carlo Simulation for Option Pricing
-Built a Monte Carlo simulation engine for European and Asian options
-Implemented variance reduction techniques (antithetic variates, control variates)
+### 5. Introduction to the Standard Template Library (STL)
+- Implemented key STL components like sequence containers and associative containers.
+- Utilized iterators and STL algorithms for efficient data manipulation.
+- Explored advanced C++11 STL features to optimize code performance.
 
-7. Binomial Trees for Option Pricing
-Constructed binomial tree models for pricing American and European options
-Efficiently handled recombining and non-recombining trees
+### 6. Function Objects
+- Implemented functors (function objects) and demonstrated their advantage over function pointers.
+- Enhanced code flexibility and efficiency in financial calculations by using functors.
 
-8. Finite Difference Methods for PDEs in Finance
-Applied finite difference schemes (explicit, implicit) to solve Black-Scholes PDE
-Focused on stability and convergence in option pricing
+### 7. Matrix Classes for Quantitative Finance
+- Developed a custom matrix class library with support for mathematical operations.
+- Integrated dynamic memory management for matrix allocation and deallocation.
+- Used external matrix libraries like Eigen to handle large-scale matrix operations.
 
-9. Advanced Options Pricing Models
-Developed models for exotic options (barrier, lookback, Asian)
-Implemented the Heston model and SABR volatility models
+### 8. Numerical Linear Algebra
+- Implemented LU, QR, and Cholesky decomposition algorithms for solving linear systems.
+- Applied the Thomas algorithm for solving tridiagonal systems in financial models.
+- Integrated these methods into C++ for efficient numerical solutions in finance.
 
-10. Fixed Income and Bond Pricing
-Coded yield curve construction algorithms (bootstrapping)
-Priced bonds using duration, convexity, and discount factor calculations
+### 9. European Options with Monte Carlo
+- Built a Monte Carlo simulation to price European vanilla options.
+- Implemented the Black-Scholes formula for option pricing as a benchmark.
+- Incorporated risk-neutral pricing methods into the Monte Carlo framework.
 
-11. Interest Rate Models
-Built short-rate models (Vasicek, Cox-Ingersoll-Ross) for pricing interest rate derivatives
-Implemented Hull-White model for pricing swaptions
+### 10. Calculating the Greeks
+- Implemented analytic formulae for option Greeks (Delta, Gamma, Vega).
+- Applied finite difference methods (FDM) and Monte Carlo techniques to compute Greeks.
+- Enhanced precision in Greek calculations using these numerical approaches.
 
-12. Portfolio Theory and Optimization
-Applied mean-variance optimization to construct efficient portfolios
-Developed C++ code for solving quadratic optimization problems in portfolio allocation
+### 11. Asian/Path-Dependent Options with Monte Carlo
+- Designed Monte Carlo simulations for Asian and path-dependent options.
+- Developed payoff classes to model various exotic option payoffs.
+- Implemented path generation algorithms to simulate option price paths.
 
-13. Risk Management and VaR
-Implemented Value-at-Risk (VaR) models (historical, parametric, Monte Carlo)
-Developed stress testing simulations for financial portfolios
+### 12. Implied Volatility
+- Applied root-finding algorithms like Newton-Raphson and interval bisection to calculate implied volatility.
+- Implemented implied volatility calculation via a C++ class with efficient numerical methods.
 
-14. Algorithmic Trading Systems
-Developed backtesting engine for algorithmic trading strategies
-Optimized order execution using limit order book simulations
+### 13. Random Number Generation and Statistical Distributions
+- Developed a linear congruential generator (LCG) for generating random numbers.
+- Implemented standard normal distribution functions for Monte Carlo simulations.
+- Built a hierarchy of statistical distribution classes for use in financial modeling.
 
-15. Multithreading and Parallel Programming
-Implemented multithreaded Monte Carlo simulations for faster pricing
-Used OpenMP for parallelizing compute-heavy financial models
+### 14. Jump-Diffusion Models
+- Modeled jump-diffusion processes to price options with discontinuous asset price movements.
+- Developed C++ code for calculating European option prices under jump-diffusion models.
 
-16. High-Performance Computing in Quantitative Finance
-Optimized pricing models using SIMD and GPU programming (CUDA)
-Benchmarked and tuned code for low-latency execution
+### 15. Stochastic Volatility
+- Implemented the Heston model for pricing options under stochastic volatility.
+- Simulated correlated asset paths using Cholesky decomposition.
+- Applied Euler discretization for generating paths in the Heston model.
 
-17. Integrating C++ with Python for Quantitative Finance
-Linked C++ libraries with Python (using Boost.Python, pybind11) for hybrid applications
-Automated workflows by leveraging Python's flexibility and C++'s speed
+### 16. Single Factor Black-Scholes with Finite Difference Methods
+- Applied finite difference methods (FDM) to solve the Black-Scholes partial differential equation.
+- Built a full FDM class to handle time-stepping and boundary conditions in option pricing.
+- Benchmarked the results against analytic solutions for validation.
+
+---
+
+This project showcases a complete C++ workshop for quantitative finance, including implementations for options pricing, numerical methods, risk modeling, and more.
