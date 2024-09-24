@@ -1,6 +1,8 @@
 # QuantCpp
 
 Personal Workshop: C++ for Quantitative Finance and Trading
+---
+This project showcases a complete C++ workshop for Quantitative Finance and Trading, including implementations for options pricing, numerical methods, risk modeling, and more.
 
 ## Chapters Breakdown
 
@@ -80,7 +82,3 @@ Personal Workshop: C++ for Quantitative Finance and Trading
 - Applied finite difference methods (FDM) to solve the Black-Scholes partial differential equation.
 - Built a full FDM class to handle time-stepping and boundary conditions in option pricing.
 - Benchmarked the results against analytic solutions for validation.
-
----
-
-This project showcases a complete C++ workshop for quantitative finance, including implementations for options pricing, numerical methods, risk modeling, and more.
