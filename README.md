@@ -2,7 +2,7 @@
 
 # *C++ Library for Quantitative Finance*
 
-This project is a high-performance, modular C++ library that implements advanced financial simulation techniques and numerical methods for option pricing and risk analysis. Each directory focuses on a core aspect of quantitative finance:
+This project is a modular C++ library that implements advanced financial simulation techniques and numerical methods for option pricing and risk analysis. Each directory focuses on a core aspect of quantitative finance:
 
 ## Project Highlights
 
